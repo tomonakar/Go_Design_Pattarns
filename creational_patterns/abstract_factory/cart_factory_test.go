@@ -2,7 +2,7 @@ package abstract_factory
 
 import "testing"
 
-func TestCartFacotry(t *testing.T) {
+func TestCartFactry(t *testing.T) {
 	carF, err := GetVehicleFactory(CarFactoryType)
 	if err != nil {
 		t.Fatal(err)
