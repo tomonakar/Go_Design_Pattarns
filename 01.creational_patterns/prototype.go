@@ -42,7 +42,6 @@ type ItemInfoGetter interface {
 }
 
 type ShirtColor byte
-
 type Shirt struct {
 	Price float32
 	SKU   string
