@@ -3,13 +3,17 @@ package adapter
 import "testing"
 
 func TestAdapter(t *testing.T) {
-	msg := "Hello"
+	msg := "Hello World!"
 
-	adapter := PrinterAdapter {OldPrinter: &MyLegacyPrinter{}, Msg: msg}
-
+	adapter := PrinterAdapter{OldPrinter: &MyLegacyPrinter{}, Msg: msg}
 	returnedMsg := adapter.PrintStored()
-	if returnedMsg != "Legacy Printer: Hello\n" {
-		t.Errorf("Messag didn't match: %s", returnedMsg)
+	if returnedMsg != "Legacy Printer: Adapter: Hello World!\n" {
+		t.Errorf("Message didn't match: %s\n", returnedMsg)
 	}
 
+	adapter = PrinterAdapter{OldPrinter: nil, Msg: msg}
+	returnedMsg = adapter.PrintStored()
+	if returnedMsg != "Hello World!" {
+		t.Errorf("Message didn't match: %s\n", returnedMsg)
+	}
 }
